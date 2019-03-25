@@ -45,7 +45,6 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.POST)
     public void addArticle(@RequestBody AddArticleRequest addArticleRequest) {
-        boolean userPresent;
         User user = userRepository.findById(addArticleRequest.getUserId()).get();
         if (user != null) {
             Article article = new Article();

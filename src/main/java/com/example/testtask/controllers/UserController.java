@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.UnsatisfiedServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addUser(@RequestBody AddUserRequest addUserRequest) {
+    public void addUser(@Valid @RequestBody AddUserRequest addUserRequest) {
         User user = new User();
         user.setName(addUserRequest.getName());
         user.setAge(addUserRequest.getAge());
